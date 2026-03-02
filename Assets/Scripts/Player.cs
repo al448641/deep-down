@@ -73,21 +73,6 @@ public class Player : MonoBehaviour
             
     }
 
-    /*private bool CanJumpRightWall()
-    {
-        //Check if the player is on the right wall and the mouse placed in the right place
-
-        if ((onRightWall == true) && (mousePosition.x > transform.position.x + torsoWidh))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
-    }*/
-
     private void DetectGroundOrWalls()
     {
         onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck,0f, groundAndWalls);
