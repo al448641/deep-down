@@ -1,3 +1,4 @@
+
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -11,6 +12,18 @@ public class Player : MonoBehaviour
     private bool onRightWall;
     private bool onLeftWall;
     private Vector3 mousePosition;
+    private bool chargingJump = false;
+    private float actualForce;
+
+    //options inside the scene
+
+     [Header("Jump and slide")]
+    [SerializeField] private float minimForce = 5f;
+    [SerializeField] private float maxForce = 20f;
+    [SerializeField] private float jumpchargeVel = 10f;
+    [SerializeField] private float wallSlidingSpeed = 2f;
+
+    [Header("Detection")]
     [SerializeField] private Vector2 sizeGroundCheck;
     [SerializeField] private Vector2 sizeWallCheck;
     [SerializeField] private float offsetY = 0.2f;
@@ -18,9 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float weightHead = 0.2f;
     [SerializeField] private float torsoWidh = 0.2f;
     [SerializeField] private LayerMask groundAndWalls;
+
     
-
-
 
     private void Start()
     {
@@ -28,16 +40,35 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         DetectGroundOrWalls();
-        JumpToMouseDirection();
+        WallSlide();
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && CanJump())
+        {
+            chargingJump = true;
+            actualForce = minimForce;
+        }
+
+        if (chargingJump)
+        {
+            actualForce += jumpchargeVel * Time.deltaTime;
+            actualForce = Mathf.Clamp(actualForce, minimForce, maxForce);
+
+        }
         
+        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
+            chargingJump = false;
+        }
 
     }
 
     private Vector2 VectorToMouse()
     {
+        //gives the direction of the mouse as a vector
 
         Vector2 mouseVector2D = mousePosition;
         Vector2 direction = (mouseVector2D - (Vector2)transform.position).normalized;
@@ -45,17 +76,9 @@ public class Player : MonoBehaviour
         return direction;
     }
 
-    private void JumpToMouseDirection()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame && CanJump() == true)
-        {
-            rb.AddForce(VectorToMouse() * 10f, ForceMode2D.Impulse);
-        }
-    }
-
     private bool CanJump()
     {
-        //check if the player is touching the ground to allow them to jump 
+        //check if the player is touching the ground and the mouse is positioned correctly to allow them to jump 
 
         if ((onGround == true) && (mousePosition.y > transform.position.y + weightHead))
         {
@@ -75,12 +98,33 @@ public class Player : MonoBehaviour
 
     private void DetectGroundOrWalls()
     {
+        //use overlap box to detect if the player is touching either the wall or the floor
         onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck,0f, groundAndWalls);
         onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f,groundAndWalls);
         onRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
     }
 
-    private void OnDrawGizmos()
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //with this method the player doesn't slide on the ground
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground&Walls"))
+        {
+            rb.linearVelocity = Vector2.zero;
+
+        }
+    }
+
+    private void WallSlide()
+    {
+        if ((onRightWall || onLeftWall) && !onGround && rb.linearVelocity.y < 0)
+        {
+            float limitedVelY = Mathf.Max(rb.linearVelocity.y, -wallSlidingSpeed);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, limitedVelY);
+        }
+  
+    }
+
+     private void OnDrawGizmos()
     {
         //draw the squares that show where the character is touching
         Gizmos.color = Color.red;
@@ -89,7 +133,8 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck);
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck);
-
+        
+        //draw the lines that show where the mouse needs to be placed to allow the player jump
         Gizmos.color = Color.green;
         Vector3 headLevel = new Vector3(transform.position.x, transform.position.y + weightHead, 0);
         Vector3 torsoLevelRight = new Vector3(transform.position.x + torsoWidh, transform.position.y, 0);
@@ -99,14 +144,8 @@ public class Player : MonoBehaviour
         Gizmos.DrawLine(transform.position, torsoLevelLeft);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground&Walls"))
-        {
-            rb.linearVelocity = Vector2.zero;
+    
 
-        }
-    }
 }
 
 

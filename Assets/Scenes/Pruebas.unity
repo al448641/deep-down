@@ -711,6 +711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf476144d8baf4b41aacd3bb181b1c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  minimForce: 5
+  maxForce: 13
+  jumpchargeVel: 10
   sizeGroundCheck: {x: 0.7, y: 0.1}
   sizeWallCheck: {x: 0.2, y: 0.7}
   offsetY: 0.5
@@ -720,6 +723,7 @@ MonoBehaviour:
   groundAndWalls:
     serializedVersion: 2
     m_Bits: 8
+  wallSlidingSpeed: 1
 --- !u!1 &816279987
 GameObject:
   m_ObjectHideFlags: 0
