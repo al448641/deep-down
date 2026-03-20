@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         DetectGroundOrWalls();
         WallSlide();
 
-        if (Mouse.current.leftButton.wasPressedThisFrame && CanJump())
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             chargingJump = true;
             actualForce = minimForce;
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
         }
         
-        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump)
+        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && CanJump())
         {
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
