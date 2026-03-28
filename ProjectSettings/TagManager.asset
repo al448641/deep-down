@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - mobilePlatform
+  - Damage
   layers:
   - Default
   - TransparentFX
@@ -11,8 +13,8 @@ TagManager:
   - Ground&Walls
   - Water
   - UI
-  - prueba
   - 
+  - Damage
   - 
   - 
   - 
@@ -40,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Damage
+    uniqueID: 2529545013
     locked: 0
   m_RenderingLayers:
   - Default

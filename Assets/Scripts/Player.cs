@@ -15,13 +15,16 @@ public class Player : MonoBehaviour
     private bool chargingJump = false;
     private float actualForce;
 
+    //respawn
+    private Vector3 lastPointOnGround;
+
     //options inside the scene
 
      [Header("Jump and slide")]
     [SerializeField] private float minimForce = 5f;
     [SerializeField] private float maxForce = 20f;
     [SerializeField] private float jumpchargeVel = 10f;
-    [SerializeField] private float wallSlidingSpeed = 2f;
+    [SerializeField] private float wallSlidingSpeed;
 
     [Header("Detection")]
     [SerializeField] private Vector2 sizeGroundCheck;
@@ -62,6 +65,11 @@ public class Player : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
             chargingJump = false;
+        }
+
+        if (onGround)
+        {
+            lastPointOnGround = transform.position;
         }
 
     }
@@ -106,11 +114,32 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //with this method the player doesn't slide on the ground
+        //with this the player doesn't slide on the ground
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground&Walls"))
         {
             rb.linearVelocity = Vector2.zero;
 
+        }
+
+        //with this the player position will follow the mobile platforms
+        if (collision.gameObject.tag == "mobilePlatform")
+        {
+            transform.parent = collision.transform;
+
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Damage"))
+        {
+            transform.position = lastPointOnGround;
+        }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "mobilePlatform")
+        {
+            transform.parent = null;
         }
     }
 
@@ -123,6 +152,8 @@ public class Player : MonoBehaviour
         }
   
     }
+
+
 
      private void OnDrawGizmos()
     {
