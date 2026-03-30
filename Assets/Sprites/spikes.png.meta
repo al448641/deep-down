@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1377b1f202e348243b1eed003221d203
+guid: b3e6d4f7fd9a77f45b2247ff51b2b146
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8382717070696663976
-    second: spikes_0
+      213: 8829469961954359934
+    second: spikes 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spikes_0
+      name: spikes 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +115,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ab4a7323c4655470800000000000000
-      internalID: 8382717070696663976
+      spriteID: e7a754d5624988a70800000000000000
+      internalID: 8829469961954359934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spikes_1
+      name: spikes 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4168866506a30d441b199d5a260ef75e
-      internalID: 35965571
+      spriteID: 42a68e2b26698f94c8bdd9282730e944
+      internalID: -188489352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spikes_2
+      name: spikes 1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e70c56accd7de7b43b37640099ba8e18
-      internalID: -1475969580
+      spriteID: 4b4a7ba9a2071d94fb2e2d8d0d2dac1b
+      internalID: 452917541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spikes_3
+      name: spikes 1_3
       rect:
         serializedVersion: 2
         x: 32
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74a30328f5f46b44c8f88b9edcb2b2cd
-      internalID: -405549995
+      spriteID: 1a9b704f688695a40b31e05eb59947ff
+      internalID: -1913405880
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c1d6403649967a249b497acc0dd8481a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -203,10 +203,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spikes_0: 8382717070696663976
-      spikes_1: 35965571
-      spikes_2: -1475969580
-      spikes_3: -405549995
+      spikes 1_0: 8829469961954359934
+      spikes 1_1: -188489352
+      spikes 1_2: 452917541
+      spikes 1_3: -1913405880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

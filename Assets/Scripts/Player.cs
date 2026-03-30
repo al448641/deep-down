@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
         DetectGroundOrWalls();
         WallSlide();
 
+        if (onGround== true)
+        {
+            lastPointOnGround = transform.position;
+        }
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             chargingJump = true;
@@ -67,10 +72,6 @@ public class Player : MonoBehaviour
             chargingJump = false;
         }
 
-        if (onGround)
-        {
-            lastPointOnGround = transform.position;
-        }
 
     }
 
