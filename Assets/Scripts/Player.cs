@@ -4,6 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class Player : MonoBehaviour
     private bool onGround;
     private bool onRightWall;
     private bool onLeftWall;
+
+    private bool onPlatform;
     private Vector3 mousePosition;
     private bool chargingJump = false;
     private float actualForce;
+    private float chargePercent;
 
     //respawn
     private Vector3 lastPointOnGround;
+
+    //events
+    public static event Action<float> JumpIsCharging;
 
     //options inside the scene
 
@@ -47,11 +54,13 @@ public class Player : MonoBehaviour
         DetectGroundOrWalls();
         WallSlide();
 
-        if (onGround== true)
+        //keeps last position on ground
+        if (( onGround == true) && (onPlatform == false ))
         {
             lastPointOnGround = transform.position;
         }
 
+        //Player movement
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             chargingJump = true;
@@ -62,13 +71,28 @@ public class Player : MonoBehaviour
         {
             actualForce += jumpchargeVel * Time.deltaTime;
             actualForce = Mathf.Clamp(actualForce, minimForce, maxForce);
+            chargePercent = (actualForce - minimForce) / (maxForce - minimForce);
+            JumpIsCharging?.Invoke(chargePercent);
 
         }
+
         
         if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && CanJump())
         {
             rb.linearVelocity = Vector2.zero;
+            if (onPlatform)
+            {
+                rb.gravityScale = 1;
+            }
             rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
+            chargingJump = false;
+            JumpIsCharging?.Invoke(0f);
+
+        }
+        
+        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && !CanJump())
+        {
+            JumpIsCharging?.Invoke(0f);
             chargingJump = false;
         }
 
@@ -89,19 +113,20 @@ public class Player : MonoBehaviour
     {
         //check if the player is touching the ground and the mouse is positioned correctly to allow them to jump 
 
-        if ((onGround == true) && (mousePosition.y > transform.position.y + weightHead))
+        if (onGround == true) 
         {
-            return true;
+            return mousePosition.y > transform.position.y + weightHead;
         }
-        else if ((onRightWall == true) && (mousePosition.x < transform.position.x - torsoWidh))
+        if (onRightWall == true)
         {
-            return true; 
+            return mousePosition.x < transform.position.x - torsoWidh; 
         }
-        else if ((onLeftWall == true) && (mousePosition.x > transform.position.x + torsoWidh))
+        if (onLeftWall == true) 
         {
-            return true;
+            return mousePosition.x > transform.position.x + torsoWidh;
         }
-        else { return false; }
+
+        return false;
             
     }
 
@@ -125,7 +150,9 @@ public class Player : MonoBehaviour
         //with this the player position will follow the mobile platforms
         if (collision.gameObject.tag == "mobilePlatform")
         {
+            rb.gravityScale = 0;
             transform.parent = collision.transform;
+            onPlatform = true;
 
         }
 
@@ -141,17 +168,20 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "mobilePlatform")
         {
             transform.parent = null;
+            onPlatform = false;
         }
     }
 
     private void WallSlide()
     {
-        if ((onRightWall || onLeftWall) && !onGround && rb.linearVelocity.y < 0)
+
+
+        if ((onRightWall || onLeftWall) && !onGround && !onPlatform && rb.linearVelocity.y < 0)
         {
             float limitedVelY = Mathf.Max(rb.linearVelocity.y, -wallSlidingSpeed);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, limitedVelY);
         }
-  
+
     }
 
 
