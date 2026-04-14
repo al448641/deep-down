@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private bool onGround;
     private bool onRightWall;
     private bool onLeftWall;
+    private bool hitCeiling;
 
     private bool onPlatform;
     private Vector3 mousePosition;
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
         WallSlide();
 
         //keeps last position on ground
-        if (( onGround == true) && (onPlatform == false ))
+        if ((onPlatform == false) && ( onGround == true))
         {
             lastPointOnGround = transform.position;
         }
@@ -136,6 +137,7 @@ public class Player : MonoBehaviour
         onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck,0f, groundAndWalls);
         onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f,groundAndWalls);
         onRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
+        hitCeiling = Physics2D.OverlapBox((Vector2)transform.position + Vector2.up * offsetX, sizeGroundCheck, 0f, groundAndWalls);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -150,9 +152,13 @@ public class Player : MonoBehaviour
         //with this the player position will follow the mobile platforms
         if (collision.gameObject.tag == "mobilePlatform")
         {
-            rb.gravityScale = 0;
-            transform.parent = collision.transform;
-            onPlatform = true;
+            DetectGroundOrWalls();
+            if (onGround || onLeftWall || onRightWall)
+            {
+                rb.gravityScale = 0;
+                transform.parent = collision.transform;
+                onPlatform = true;
+            }
 
         }
 
@@ -191,6 +197,7 @@ public class Player : MonoBehaviour
         //draw the squares that show where the character is touching
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck);
+        Gizmos.DrawWireCube((Vector2)transform.position + Vector2.up * offsetY, sizeGroundCheck);
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck);
