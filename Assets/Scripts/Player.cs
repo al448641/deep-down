@@ -6,19 +6,20 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System;
 
+
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     private bool onGround;
     private bool onRightWall;
     private bool onLeftWall;
-    private bool hitCeiling;
-
     private bool onPlatform;
     private Vector3 mousePosition;
     private bool chargingJump = false;
     private float actualForce;
     private float chargePercent;
+
+    [SerializeField] private Animator animator;
 
     //respawn
     private Vector3 lastPointOnGround;
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float torsoWidh = 0.2f;
     [SerializeField] private LayerMask groundAndWalls;
 
-    
+    // here starts the code -----------------------------------------------------------------------------------------------------------------------
 
     private void Start()
     {
@@ -53,10 +54,33 @@ public class Player : MonoBehaviour
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         DetectGroundOrWalls();
+        animator.SetBool("OnGround", onGround);
+        animator.SetBool("OnrightWall", onRightWall);
+        animator.SetBool("OnleftWall", onLeftWall);
+
+        if (rb.linearVelocity.y < 0)
+        {
+            animator.SetBool("Falling", true);
+            animator.SetBool("Jumping", false);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
+        }
+
+        if (mousePosition.x < transform.position.x)
+        {
+            animator.SetBool("PointerOnRight", false);
+        }
+        else
+        {
+            animator.SetBool("PointerOnRight", true);
+        }
+
         WallSlide();
 
         //keeps last position on ground
-        if ((onPlatform == false) && ( onGround == true))
+        if ((onGround == true) && (onPlatform == false))
         {
             lastPointOnGround = transform.position;
         }
@@ -66,6 +90,7 @@ public class Player : MonoBehaviour
         {
             chargingJump = true;
             actualForce = minimForce;
+            animator.SetBool("chargingJump", true);
         }
 
         if (chargingJump)
@@ -87,6 +112,8 @@ public class Player : MonoBehaviour
             }
             rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
             chargingJump = false;
+            animator.SetBool("chargingJump", false);
+            animator.SetBool("Jumping", true);
             JumpIsCharging?.Invoke(0f);
 
         }
@@ -95,8 +122,8 @@ public class Player : MonoBehaviour
         {
             JumpIsCharging?.Invoke(0f);
             chargingJump = false;
+            animator.SetBool("chargingJump", false);
         }
-
 
     }
 
@@ -137,7 +164,6 @@ public class Player : MonoBehaviour
         onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck,0f, groundAndWalls);
         onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f,groundAndWalls);
         onRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
-        hitCeiling = Physics2D.OverlapBox((Vector2)transform.position + Vector2.up * offsetX, sizeGroundCheck, 0f, groundAndWalls);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -152,13 +178,9 @@ public class Player : MonoBehaviour
         //with this the player position will follow the mobile platforms
         if (collision.gameObject.tag == "mobilePlatform")
         {
-            DetectGroundOrWalls();
-            if (onGround || onLeftWall || onRightWall)
-            {
-                rb.gravityScale = 0;
-                transform.parent = collision.transform;
-                onPlatform = true;
-            }
+            rb.gravityScale = 0;
+            transform.parent = collision.transform;
+            onPlatform = true;
 
         }
 
@@ -190,14 +212,11 @@ public class Player : MonoBehaviour
 
     }
 
-
-
      private void OnDrawGizmos()
     {
         //draw the squares that show where the character is touching
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck);
-        Gizmos.DrawWireCube((Vector2)transform.position + Vector2.up * offsetY, sizeGroundCheck);
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck);
@@ -213,7 +232,6 @@ public class Player : MonoBehaviour
         Gizmos.DrawLine(transform.position, torsoLevelLeft);
     }
 
-    
 
 }
 
