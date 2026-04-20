@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         animator.SetBool("OnrightWall", onRightWall);
         animator.SetBool("OnleftWall", onLeftWall);
 
-        if (rb.linearVelocity.y < 0)
+        if (rb.linearVelocity.y <= 0 && (!onRightWall || !onLeftWall))
         {
             animator.SetBool("Falling", true);
             animator.SetBool("Jumping", false);
