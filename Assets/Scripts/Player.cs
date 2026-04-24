@@ -176,7 +176,8 @@ public class Player : MonoBehaviour
         }
 
         //with this the player position will follow the mobile platforms
-        if (collision.gameObject.tag == "mobilePlatform")
+        DetectGroundOrWalls();
+        if (collision.gameObject.tag == "mobilePlatform" && (onGround || onLeftWall || onRightWall))
         {
             rb.gravityScale = 0;
             transform.parent = collision.transform;
@@ -193,7 +194,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "mobilePlatform")
+        if (collision.gameObject.tag == "mobilePlatform" && onPlatform)
         {
             transform.parent = null;
             onPlatform = false;
