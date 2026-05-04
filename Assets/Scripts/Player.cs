@@ -1,10 +1,8 @@
-
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System;
+
 
 
 public class Player : MonoBehaviour
@@ -22,7 +20,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator animator;
 
     //respawn
+
+    private int lives = 3;
+    private int tries = 5;
     private Vector3 lastPointOnGround;
+    private Vector3 lastSpawnPoint;
+    
 
     //events
     public static event Action<float> JumpIsCharging;
@@ -44,7 +47,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float torsoWidh = 0.2f;
     [SerializeField] private LayerMask groundAndWalls;
 
-    // here starts the code -----------------------------------------------------------------------------------------------------------------------
+    //Code -------------------------------------------------------------------------------------------------------------------------------------------
 
     private void Start()
     {
@@ -185,10 +188,38 @@ public class Player : MonoBehaviour
 
         }
 
+        //damage management
         if (collision.gameObject.layer == LayerMask.NameToLayer("Damage"))
         {
-            transform.position = lastPointOnGround;
+
+            tries -= 1;
+
+            if (tries > 0)
+            {
+                transform.position = lastPointOnGround;
+                Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
+
+            }
+            else
+            {
+                lives -= 1;
+
+                if (lives > 0)
+                {
+                    tries = 5;
+                    transform.position = lastSpawnPoint;
+                    Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
+                }
+                else
+                {
+                    Debug.Log("Game Over");
+                }
+                
+            }
+            
+
         }
+
 
     }
 
@@ -201,6 +232,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Respawn"))
+        {
+            tries = 5;
+            lastSpawnPoint = collision.transform.position;
+        }
+    }
+
+    public void ResetTries()
+    {
+        tries = 5;
+    }
     private void WallSlide()
     {
 
