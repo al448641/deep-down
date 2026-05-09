@@ -1,0 +1,422 @@
+fileFormatVersion: 2
+guid: cd765647b1d837846a3d201a3035b8d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1586789579641267546
+    second: "buzo 1 da\xF1o derecha _0"
+  - first:
+      213: -7337650836102343562
+    second: "buzo 1 da\xF1o derecha _1"
+  - first:
+      213: -4678416732735867408
+    second: "buzo 1 da\xF1o derecha _2"
+  - first:
+      213: 4033505457147879564
+    second: "buzo 1 da\xF1o derecha _3"
+  - first:
+      213: -8121273988670412920
+    second: "buzo 1 da\xF1o derecha _4"
+  - first:
+      213: 8039019296721583924
+    second: "buzo 1 da\xF1o derecha _5"
+  - first:
+      213: -8442248052775728715
+    second: "buzo 1 da\xF1o derecha _6"
+  - first:
+      213: 779886981866872059
+    second: "buzo 1 da\xF1o derecha _7"
+  - first:
+      213: 2458274461553986977
+    second: "buzo 1 da\xF1o derecha _8"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aad034d8479af9e0800000000000000
+      internalID: -1586789579641267546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _1"
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674954ce07d6b2a90800000000000000
+      internalID: -7337650836102343562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _2"
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5f806d4cce21fb0800000000000000
+      internalID: -4678416732735867408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _3"
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8026e4c7d3e9f730800000000000000
+      internalID: 4033505457147879564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _4"
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8872eade5507b4f80800000000000000
+      internalID: -8121273988670412920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _5"
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43fb9933575509f60800000000000000
+      internalID: 8039019296721583924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _6"
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9c19cff1c17da80800000000000000
+      internalID: -8442248052775728715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _7"
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfc5027f317b2da00800000000000000
+      internalID: 779886981866872059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _8"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad0759299b8d1220800000000000000
+      internalID: 2458274461553986977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _9"
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1317145de63fa974e87f93f480ee67d8
+      internalID: 113140397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _10"
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254f694b23725284d89f3f6653873945
+      internalID: -1092812668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "buzo 1 da\xF1o derecha _11"
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 36
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5219193, y: 0.3083633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84688fd51dfbdf24387521a5ac76e192
+      internalID: -1314507996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 10a6d26bd6445d843aa74e32b5c2791b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":36.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.521919310092926,"y":0.30836328864097597},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      "buzo 1 da\xF1o derecha _0": -1586789579641267546
+      "buzo 1 da\xF1o derecha _1": -7337650836102343562
+      "buzo 1 da\xF1o derecha _10": -1092812668
+      "buzo 1 da\xF1o derecha _11": -1314507996
+      "buzo 1 da\xF1o derecha _2": -4678416732735867408
+      "buzo 1 da\xF1o derecha _3": 4033505457147879564
+      "buzo 1 da\xF1o derecha _4": -8121273988670412920
+      "buzo 1 da\xF1o derecha _5": 8039019296721583924
+      "buzo 1 da\xF1o derecha _6": -8442248052775728715
+      "buzo 1 da\xF1o derecha _7": 779886981866872059
+      "buzo 1 da\xF1o derecha _8": 2458274461553986977
+      "buzo 1 da\xF1o derecha _9": 113140397
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

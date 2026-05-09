@@ -6,6 +6,7 @@ TagManager:
   tags:
   - mobilePlatform
   - Damage
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Ground&Walls
   - Water
   - UI
-  - 
+  - PlayerLayer
   - Damage
   - 
   - 

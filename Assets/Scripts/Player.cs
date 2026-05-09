@@ -12,10 +12,13 @@ public class Player : MonoBehaviour
     private bool onRightWall;
     private bool onLeftWall;
     private bool onPlatform;
+    private bool lookingRight;
     private Vector3 mousePosition;
     private bool chargingJump = false;
     private float actualForce;
     private float chargePercent;
+
+
 
     [SerializeField] private Animator animator;
 
@@ -25,7 +28,10 @@ public class Player : MonoBehaviour
     private int tries = 5;
     private Vector3 lastPointOnGround;
     private Vector3 lastSpawnPoint;
-    
+
+    //collectables
+    private int garbageRecollected = 0;
+
 
     //events
     public static event Action<float> JumpIsCharging;
@@ -57,6 +63,8 @@ public class Player : MonoBehaviour
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         DetectGroundOrWalls();
+
+        //configurate animator booleans
         animator.SetBool("OnGround", onGround);
         animator.SetBool("OnrightWall", onRightWall);
         animator.SetBool("OnleftWall", onLeftWall);
@@ -79,6 +87,14 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("PointerOnRight", true);
         }
+
+        //to the cleaning animations 
+
+        if (rb.linearVelocity.x > 0)
+        {
+            lookingRight = true;
+        }
+        else { lookingRight = false; }
 
         WallSlide();
 
@@ -193,31 +209,7 @@ public class Player : MonoBehaviour
         {
 
             tries -= 1;
-
-            if (tries > 0)
-            {
-                transform.position = lastPointOnGround;
-                Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
-
-            }
-            else
-            {
-                lives -= 1;
-
-                if (lives > 0)
-                {
-                    tries = 5;
-                    transform.position = lastSpawnPoint;
-                    Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
-                }
-                else
-                {
-                    Debug.Log("Game Over");
-                }
-                
-            }
-            
-
+            DamageAnimation();
         }
 
 
@@ -238,6 +230,59 @@ public class Player : MonoBehaviour
         {
             tries = 5;
             lastSpawnPoint = collision.transform.position;
+        }
+
+        if (collision.CompareTag("Collectable"))
+        {
+            if (lookingRight)
+            {
+                animator.Play("cleaning right");
+            }
+            else { animator.Play("cleaning left"); }
+
+            garbageRecollected += 1;
+            Debug.Log("Basura recogida | Total en el inventario: " + garbageRecollected);
+        }
+    }
+
+    private void DamageAnimation()
+    {
+        if (lookingRight)
+        {
+           
+            animator.Play("damage right");
+        }
+        else
+        {
+            
+            animator.Play("damage left");
+        }
+
+    }
+
+    private void Respawn()
+    {
+        if (tries > 0)
+        {
+            transform.position = lastPointOnGround;
+            Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
+
+        }
+        else
+        {
+            lives -= 1;
+
+            if (lives > 0)
+            {
+                tries = 5;
+                transform.position = lastSpawnPoint;
+                Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
+            }
+            else
+            {
+                Debug.Log("Game Over");
+            }
+
         }
     }
 
