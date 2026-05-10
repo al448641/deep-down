@@ -27,7 +27,8 @@ public class InkBulletController : MonoBehaviour
         {
             animator.SetBool("Crashed", true);
             crashed = true;
-            rb.linearVelocity = Vector3.zero;   
+            rb.linearVelocity = Vector3.zero;
+            rb.bodyType = RigidbodyType2D.Static;
         }
     }
 

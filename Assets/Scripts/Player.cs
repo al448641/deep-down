@@ -18,12 +18,9 @@ public class Player : MonoBehaviour
     private float actualForce;
     private float chargePercent;
 
-
-
     [SerializeField] private Animator animator;
 
     //respawn
-
     private int lives = 3;
     private int tries = 5;
     private Vector3 lastPointOnGround;
@@ -32,13 +29,12 @@ public class Player : MonoBehaviour
     //collectables
     private int garbageRecollected = 0;
 
-
-    //events
+    //camera stuff
     public static event Action<float> JumpIsCharging;
+    [SerializeField] private CameraController cam;
 
     //options inside the scene
-
-     [Header("Jump and slide")]
+    [Header("Jump and slide")]
     [SerializeField] private float minimForce = 5f;
     [SerializeField] private float maxForce = 20f;
     [SerializeField] private float jumpchargeVel = 10f;
@@ -209,6 +205,12 @@ public class Player : MonoBehaviour
         {
 
             tries -= 1;
+            GameObject[] bullets = GameObject.FindGameObjectsWithTag("bullet");
+            foreach (GameObject bullet in bullets) {
+                Destroy(bullet);
+            }
+            rb.bodyType = RigidbodyType2D.Static;
+            cam.StartDamageTimer();
             DamageAnimation();
         }
 
@@ -284,6 +286,8 @@ public class Player : MonoBehaviour
             }
 
         }
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
     }
 
     public void ResetTries()

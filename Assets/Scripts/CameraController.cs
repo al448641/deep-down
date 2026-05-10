@@ -19,16 +19,18 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private float maxShakeAmplitudeGain;
     [SerializeField] private float maxShakeFrequencyGain;
+    [SerializeField] private float damageShakeDuration;
+    [SerializeField] private float damageShakeAmplitude;
+    [SerializeField] private float damageShakeFrequency;
     private CinemachineBasicMultiChannelPerlin shakeEffect;
     private float UpdateShakeIntensity;
-
+    private float damageTimer;
 
     void Awake()
     {
         originalZoom = cam.Lens.OrthographicSize;
         zoom = originalZoom;
         shakeEffect = cam.GetComponent<CinemachineBasicMultiChannelPerlin>();
-        
     }
 
 
@@ -47,24 +49,39 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //Here we change the zoom when the jump is loading
-        cam.Lens.OrthographicSize = Mathf.SmoothDamp(cam.Lens.OrthographicSize,zoom,ref velocity,smoothTimeforZoom);
+        cam.Lens.OrthographicSize = Mathf.SmoothDamp(cam.Lens.OrthographicSize, zoom, ref velocity, smoothTimeforZoom);
 
-        //Here we change the shake when the jump is loading
-        shakeEffect.AmplitudeGain = UpdateShakeIntensity * maxShakeAmplitudeGain;
-        shakeEffect.FrequencyGain = UpdateShakeIntensity * maxShakeFrequencyGain;
+        if (damageTimer > 0)
+        {
+            shakeEffect.AmplitudeGain = damageShakeAmplitude;
+            shakeEffect.FrequencyGain = damageShakeFrequency;
+            damageTimer -= Time.deltaTime;
+        }
+        else
+        {
+            //Here we change the shake when the jump is loading
+            shakeEffect.AmplitudeGain = UpdateShakeIntensity * maxShakeAmplitudeGain;
+            shakeEffect.FrequencyGain = UpdateShakeIntensity * maxShakeFrequencyGain;
+        }
 
     }
 
-    void UpdateZoom(float intensityPercent)
+    public void StartDamageTimer()
+    {
+        damageTimer = damageShakeDuration;
+    }
+
+    private void UpdateZoom(float intensityPercent)
     {
         //Here we take how much is left for the maximum zoom, or the maximum jump load, using a function that uses linear interpolation
-        zoom = Mathf.Lerp(originalZoom,maxZoom,intensityPercent);
+        zoom = Mathf.Lerp(originalZoom, maxZoom, intensityPercent);
 
     }
 
-    void UpdateChargeJumpIntensity(float intensityPercent)
+    private void UpdateChargeJumpIntensity(float intensityPercent)
     {
         UpdateShakeIntensity = intensityPercent;
     }
+    
 
 }

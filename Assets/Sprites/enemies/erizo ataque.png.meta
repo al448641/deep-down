@@ -1,0 +1,790 @@
+fileFormatVersion: 2
+guid: 4354ad21faab81b4588761a853b9a9aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6239652038327271313
+    second: erizo ataque_0
+  - first:
+      213: -5686839090790940278
+    second: erizo ataque_1
+  - first:
+      213: 1393250421424651196
+    second: erizo ataque_2
+  - first:
+      213: -5353615194837496656
+    second: erizo ataque_3
+  - first:
+      213: 7890330053067012433
+    second: erizo ataque_4
+  - first:
+      213: -8064658546311526207
+    second: erizo ataque_5
+  - first:
+      213: 7165687652115457600
+    second: erizo ataque_6
+  - first:
+      213: -1865317201054925989
+    second: erizo ataque_7
+  - first:
+      213: -9081774834197772753
+    second: erizo ataque_8
+  - first:
+      213: -1290808019242284239
+    second: erizo ataque_9
+  - first:
+      213: 8517764428405971785
+    second: erizo ataque_10
+  - first:
+      213: 7787435604194099956
+    second: erizo ataque_11
+  - first:
+      213: 8122686875108498066
+    second: erizo ataque_12
+  - first:
+      213: -1563768146436897681
+    second: erizo ataque_13
+  - first:
+      213: -772697565188304144
+    second: erizo ataque_14
+  - first:
+      213: -3758089011062585766
+    second: erizo ataque_15
+  - first:
+      213: 117677906726862774
+    second: erizo ataque_16
+  - first:
+      213: 3767705162831041683
+    second: erizo ataque_17
+  - first:
+      213: -7474041579831111155
+    second: erizo ataque_18
+  - first:
+      213: -4428549565386025672
+    second: erizo ataque_19
+  - first:
+      213: -7215241067592193429
+    second: erizo ataque_20
+  - first:
+      213: -4686103665038944816
+    second: erizo ataque_21
+  - first:
+      213: 3246343435391930780
+    second: erizo ataque_22
+  - first:
+      213: -3922576483274370700
+    second: erizo ataque_23
+  - first:
+      213: -9050787222503994295
+    second: erizo ataque_24
+  - first:
+      213: -3014886351614407131
+    second: erizo ataque_25
+  - first:
+      213: -6123273040689464116
+    second: erizo ataque_26
+  - first:
+      213: 8608699419420449267
+    second: erizo ataque_27
+  - first:
+      213: 1088532312555277121
+    second: erizo ataque_28
+  - first:
+      213: -7252772749990788445
+    second: erizo ataque_29
+  - first:
+      213: -785612839131271200
+    second: erizo ataque_30
+  - first:
+      213: 7112937454166208496
+    second: erizo ataque_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: erizo ataque_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60067db78d4869a0800000000000000
+      internalID: -6239652038327271313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a81c9922af94411b0800000000000000
+      internalID: -5686839090790940278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbbfd2460e1d55310800000000000000
+      internalID: 1393250421424651196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcc39f485324b5b0800000000000000
+      internalID: -5353615194837496656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159f5a5e065108d60800000000000000
+      internalID: 7890330053067012433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c88840d7c3941090800000000000000
+      internalID: -8064658546311526207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046aeb344f2a17360800000000000000
+      internalID: 7165687652115457600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5bf1b573ef0d16e0800000000000000
+      internalID: -1865317201054925989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f264f85d7ed07f180800000000000000
+      internalID: -9081774834197772753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b86db02f0261ee0800000000000000
+      internalID: -1290808019242284239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b989b5e9d253670800000000000000
+      internalID: 8517764428405971785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f208332c67821c60800000000000000
+      internalID: 7787435604194099956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ad1945da499b070800000000000000
+      internalID: 8122686875108498066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_13
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64ce80f7216c4ae0800000000000000
+      internalID: -1563768146436897681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2542c88a3d645f0800000000000000
+      internalID: -772697565188304144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_15
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56c055a4f598dbc0800000000000000
+      internalID: -3758089011062585766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_16
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfbd54ce6312a100800000000000000
+      internalID: 117677906726862774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_17
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39413f822e3994430800000000000000
+      internalID: 3767705162831041683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_18
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02daa548ced64890800000000000000
+      internalID: -7474041579831111155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_19
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83594fc32a1aa82c0800000000000000
+      internalID: -4428549565386025672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_20
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a6b5d1a705edb90800000000000000
+      internalID: -7215241067592193429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_21
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d592b07b8d97feb0800000000000000
+      internalID: -4686103665038944816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_22
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91157597245d0d20800000000000000
+      internalID: 3246343435391930780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_23
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471512e98753099c0800000000000000
+      internalID: -3922576483274370700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo ataque_24
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c410969f4256280800000000000000
+      internalID: -9050787222503994295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 226d62e7736e96e4da23ed1c4e26deae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":70.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.48829978704452517,"y":0.12025170028209686},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      erizo ataque_0: -6239652038327271313
+      erizo ataque_1: -5686839090790940278
+      erizo ataque_10: 8517764428405971785
+      erizo ataque_11: 7787435604194099956
+      erizo ataque_12: 8122686875108498066
+      erizo ataque_13: -1563768146436897681
+      erizo ataque_14: -772697565188304144
+      erizo ataque_15: -3758089011062585766
+      erizo ataque_16: 117677906726862774
+      erizo ataque_17: 3767705162831041683
+      erizo ataque_18: -7474041579831111155
+      erizo ataque_19: -4428549565386025672
+      erizo ataque_2: 1393250421424651196
+      erizo ataque_20: -7215241067592193429
+      erizo ataque_21: -4686103665038944816
+      erizo ataque_22: 3246343435391930780
+      erizo ataque_23: -3922576483274370700
+      erizo ataque_24: -9050787222503994295
+      erizo ataque_3: -5353615194837496656
+      erizo ataque_4: 7890330053067012433
+      erizo ataque_5: -8064658546311526207
+      erizo ataque_6: 7165687652115457600
+      erizo ataque_7: -1865317201054925989
+      erizo ataque_8: -9081774834197772753
+      erizo ataque_9: -1290808019242284239
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 96a2a4c5b523d904497455d94d5243dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7592567178929787106
+    second: erizo de mar idle_0
+  - first:
+      213: -1510953386224628462
+    second: erizo de mar idle_1
+  - first:
+      213: 7950688552464477561
+    second: erizo de mar idle_2
+  - first:
+      213: 4964930837059619533
+    second: erizo de mar idle_3
+  - first:
+      213: 3092258257611527708
+    second: erizo de mar idle_4
+  - first:
+      213: -464123458872265573
+    second: erizo de mar idle_5
+  - first:
+      213: -3332354643012052239
+    second: erizo de mar idle_6
+  - first:
+      213: 935001010799924369
+    second: erizo de mar idle_7
+  - first:
+      213: 4775628204572524216
+    second: erizo de mar idle_8
+  - first:
+      213: 167907483718383025
+    second: erizo de mar idle_9
+  - first:
+      213: 4430561219943697128
+    second: erizo de mar idle_10
+  - first:
+      213: -8668078340176136903
+    second: erizo de mar idle_11
+  - first:
+      213: -921588987050875160
+    second: erizo de mar idle_12
+  - first:
+      213: -9220134941362763259
+    second: erizo de mar idle_13
+  - first:
+      213: -1402835291011514347
+    second: erizo de mar idle_14
+  - first:
+      213: -3934170026795041539
+    second: erizo de mar idle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: erizo de mar idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1fa99eb068c1a690800000000000000
+      internalID: -7592567178929787106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d48ed86e3080be0800000000000000
+      internalID: -1510953386224628462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97de8692d15865e60800000000000000
+      internalID: 7950688552464477561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca425d7a4af6e440800000000000000
+      internalID: 4964930837059619533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1614b67088e9ea20800000000000000
+      internalID: 3092258257611527708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b943ef55c2a1f89f0800000000000000
+      internalID: -464123458872265573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa94a59b1911c1d0800000000000000
+      internalID: -3332354643012052239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1945c59277ac9fc00800000000000000
+      internalID: 935001010799924369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8beb1e8bc80764240800000000000000
+      internalID: 4775628204572524216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5f92287f6845200800000000000000
+      internalID: 167907483718383025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea8d5694f38c7d30800000000000000
+      internalID: 4430561219943697128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9353b80dcacc4b780800000000000000
+      internalID: -8668078340176136903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e6abe5f2bbd533f0800000000000000
+      internalID: -921588987050875160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_13
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ac7e60f108b0080800000000000000
+      internalID: -9220134941362763259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_14
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51080e04cb0288ce0800000000000000
+      internalID: -1402835291011514347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: erizo de mar idle_15
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 96
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4882998, y: 0.1202517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc74ea64350769c0800000000000000
+      internalID: -3934170026795041539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b95ebdb612143284bbdf3b42083bfa00
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":70.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.48829978704452517,"y":0.12025170028209686},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      erizo de mar idle_0: -7592567178929787106
+      erizo de mar idle_1: -1510953386224628462
+      erizo de mar idle_10: 4430561219943697128
+      erizo de mar idle_11: -8668078340176136903
+      erizo de mar idle_12: -921588987050875160
+      erizo de mar idle_13: -9220134941362763259
+      erizo de mar idle_14: -1402835291011514347
+      erizo de mar idle_15: -3934170026795041539
+      erizo de mar idle_2: 7950688552464477561
+      erizo de mar idle_3: 4964930837059619533
+      erizo de mar idle_4: 3092258257611527708
+      erizo de mar idle_5: -464123458872265573
+      erizo de mar idle_6: -3332354643012052239
+      erizo de mar idle_7: 935001010799924369
+      erizo de mar idle_8: 4775628204572524216
+      erizo de mar idle_9: 167907483718383025
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
