@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     private bool onGround;
     private bool onRightWall;
     private bool onLeftWall;
-    private bool onPlatform;
+    private bool onPlatformGround;
+    private bool onPlatformRightWall;
+    private bool onPlatformLeftWall;
     private bool lookingRight;
     private Vector3 mousePosition;
     private bool chargingJump = false;
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float weightHead = 0.2f;
     [SerializeField] private float torsoWidh = 0.2f;
     [SerializeField] private LayerMask groundAndWalls;
+    [SerializeField] private LayerMask platforms;
 
     //Code -------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +98,7 @@ public class Player : MonoBehaviour
         WallSlide();
 
         //keeps last position on ground
-        if ((onGround == true) && (onPlatform == false))
+        if ((onGround == true))
         {
             lastPointOnGround = transform.position;
         }
@@ -121,7 +124,7 @@ public class Player : MonoBehaviour
         if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && CanJump())
         {
             rb.linearVelocity = Vector2.zero;
-            if (onPlatform)
+            if (onPlatformGround || onPlatformLeftWall || onPlatformRightWall)
             {
                 rb.gravityScale = 1;
             }
@@ -154,31 +157,28 @@ public class Player : MonoBehaviour
 
     private bool CanJump()
     {
-        //check if the player is touching the ground and the mouse is positioned correctly to allow them to jump 
-
-        if (onGround == true) 
-        {
+        if (onGround || onPlatformGround)
             return mousePosition.y > transform.position.y + weightHead;
-        }
-        if (onRightWall == true)
-        {
-            return mousePosition.x < transform.position.x - torsoWidh; 
-        }
-        if (onLeftWall == true) 
-        {
+
+        if (onRightWall || onPlatformRightWall)
+            return mousePosition.x < transform.position.x - torsoWidh;
+
+        if (onLeftWall || onPlatformLeftWall)
             return mousePosition.x > transform.position.x + torsoWidh;
-        }
 
         return false;
-            
     }
 
     private void DetectGroundOrWalls()
     {
         //use overlap box to detect if the player is touching either the wall or the floor
-        onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck,0f, groundAndWalls);
-        onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f,groundAndWalls);
+        onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck, 0f, groundAndWalls);
+        onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f, groundAndWalls);
         onRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
+
+        onPlatformGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck, 0f, platforms);
+        onPlatformLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f, platforms);
+        onPlatformRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, platforms);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -192,11 +192,10 @@ public class Player : MonoBehaviour
 
         //with this the player position will follow the mobile platforms
         DetectGroundOrWalls();
-        if (collision.gameObject.tag == "mobilePlatform" && (onGround || onLeftWall || onRightWall))
+        if (collision.gameObject.tag == "mobilePlatform" && (onPlatformGround || onPlatformLeftWall || onPlatformRightWall))
         {
             rb.gravityScale = 0;
             transform.parent = collision.transform;
-            onPlatform = true;
 
         }
 
@@ -219,10 +218,10 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "mobilePlatform" && onPlatform)
+        if (collision.gameObject.tag == "mobilePlatform")
         {
             transform.parent = null;
-            onPlatform = false;
+            rb.gravityScale = 1;
         }
     }
 
@@ -298,7 +297,7 @@ public class Player : MonoBehaviour
     {
 
 
-        if ((onRightWall || onLeftWall) && !onGround && !onPlatform && rb.linearVelocity.y < 0)
+        if ((onRightWall || onLeftWall)  && !onGround && rb.linearVelocity.y < 0)
         {
             float limitedVelY = Mathf.Max(rb.linearVelocity.y, -wallSlidingSpeed);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, limitedVelY);

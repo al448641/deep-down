@@ -8,6 +8,7 @@ TagManager:
   - Damage
   - Collectable
   - bullet
+  - Platforms
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - PlayerLayer
   - Damage
-  - 
+  - platforms
   - 
   - 
   - 

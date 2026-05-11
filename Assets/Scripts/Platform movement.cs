@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Platformmovement : MonoBehaviour
 {
+    //code created using a youtube tutorial
+
     [SerializeField] private GameObject platformToMove;
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform endPoint;
