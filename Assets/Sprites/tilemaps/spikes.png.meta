@@ -112,8 +112,18 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 14, y: 7}
+        - {x: 10, y: 0}
+        - {x: 5, y: 2}
+        - {x: -1, y: -3}
+        - {x: -5, y: 11}
+        - {x: -11, y: 2}
+        - {x: -11, y: -7}
+        - {x: -13, y: -2}
+        - {x: -13, y: -15}
+        - {x: 13, y: -15}
+      tessellationDetail: 0
       bones: []
       spriteID: e7a754d5624988a70800000000000000
       internalID: 8829469961954359934
@@ -134,7 +144,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 11, y: -12}
+        - {x: 3, y: -8}
+        - {x: 3, y: 0}
+        - {x: 10, y: 5}
+        - {x: 2, y: 11}
+        - {x: -1, y: 13}
+        - {x: -13, y: 13}
+        - {x: -14, y: -13}
+        - {x: 7, y: -13}
       tessellationDetail: 0
       bones: []
       spriteID: 42a68e2b26698f94c8bdd9282730e944
@@ -156,7 +175,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 12, y: 0}
+        - {x: 12, y: 14}
+        - {x: -13, y: 14}
+        - {x: -13, y: -5}
+        - {x: -13, y: -12}
+        - {x: -9, y: 1}
+        - {x: -5, y: -5}
+        - {x: 0, y: 5}
+        - {x: 5, y: -10}
       tessellationDetail: 0
       bones: []
       spriteID: 4b4a7ba9a2071d94fb2e2d8d0d2dac1b
@@ -178,7 +206,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 11, y: 13}
+        - {x: -1, y: 13}
+        - {x: -9, y: 13}
+        - {x: 1, y: 10}
+        - {x: -10, y: 4}
+        - {x: 1, y: -1}
+        - {x: -11, y: -5}
+        - {x: 2, y: -6}
+        - {x: -3, y: -11}
+        - {x: 12, y: -11}
       tessellationDetail: 0
       bones: []
       spriteID: 1a9b704f688695a40b31e05eb59947ff
