@@ -23,7 +23,7 @@ public class InkBulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground&Walls") || collision.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground&Walls") || collision.gameObject.layer == LayerMask.NameToLayer("PlayerLayer") || collision.gameObject.layer == LayerMask.NameToLayer("Damage"))
         {
             animator.SetBool("Crashed", true);
             crashed = true;

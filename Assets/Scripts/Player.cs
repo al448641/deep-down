@@ -8,12 +8,10 @@ using System;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    private InputAction jumpAction;
     private bool onGround;
     private bool onRightWall;
     private bool onLeftWall;
-    private bool onPlatformGround;
-    private bool onPlatformRightWall;
-    private bool onPlatformLeftWall;
     private bool lookingRight;
     private Vector3 mousePosition;
     private bool chargingJump = false;
@@ -27,6 +25,12 @@ public class Player : MonoBehaviour
     private int tries = 5;
     private Vector3 lastPointOnGround;
     private Vector3 lastSpawnPoint;
+
+    //mobile platforms
+    private Transform currentPlatform;
+    Collider2D ground;
+    Collider2D leftWall;
+    Collider2D rightWall;
 
     //collectables
     private int garbageRecollected = 0;
@@ -57,10 +61,14 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        jumpAction = new InputAction(binding: "<Mouse>/leftButton");
+        jumpAction.Enable();
+
     }
+
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
         DetectGroundOrWalls();
 
         //configurate animator booleans
@@ -95,16 +103,29 @@ public class Player : MonoBehaviour
         }
         else { lookingRight = false; }
 
-        WallSlide();
+        //to follow the platform movement
+        if (currentPlatform != null && (onGround || onLeftWall || onRightWall))
+        {
+            rb.gravityScale = 0;
+            transform.parent = currentPlatform;
+        }
+        else if (currentPlatform == null)
+        {
+            transform.parent = null;
+            rb.gravityScale = 1;
+        }
 
         //keeps last position on ground
-        if ((onGround == true))
+        if (onGround && ground != null && !ground.CompareTag("mobilePlatform"))
         {
             lastPointOnGround = transform.position;
         }
 
+        //to slide on the walls
+        WallSlide();
+
         //Player movement
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (jumpAction.WasPressedThisFrame())
         {
             chargingJump = true;
             actualForce = minimForce;
@@ -117,30 +138,20 @@ public class Player : MonoBehaviour
             actualForce = Mathf.Clamp(actualForce, minimForce, maxForce);
             chargePercent = (actualForce - minimForce) / (maxForce - minimForce);
             JumpIsCharging?.Invoke(chargePercent);
-
         }
 
-        
-        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && CanJump())
+        if (jumpAction.WasReleasedThisFrame() && chargingJump)
         {
-            rb.linearVelocity = Vector2.zero;
-            if (onPlatformGround || onPlatformLeftWall || onPlatformRightWall)
+            JumpIsCharging?.Invoke(0f);
+            chargingJump = false;
+            animator.SetBool("chargingJump", false);
+
+            if (CanJump())
             {
-                rb.gravityScale = 1;
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
+                animator.SetBool("Jumping", true);
             }
-            rb.AddForce(VectorToMouse() * actualForce, ForceMode2D.Impulse);
-            chargingJump = false;
-            animator.SetBool("chargingJump", false);
-            animator.SetBool("Jumping", true);
-            JumpIsCharging?.Invoke(0f);
-
-        }
-        
-        if (Mouse.current.leftButton.wasReleasedThisFrame && chargingJump && !CanJump())
-        {
-            JumpIsCharging?.Invoke(0f);
-            chargingJump = false;
-            animator.SetBool("chargingJump", false);
         }
 
     }
@@ -157,13 +168,13 @@ public class Player : MonoBehaviour
 
     private bool CanJump()
     {
-        if (onGround || onPlatformGround)
+        if (onGround)
             return mousePosition.y > transform.position.y + weightHead;
 
-        if (onRightWall || onPlatformRightWall)
+        if (onRightWall)
             return mousePosition.x < transform.position.x - torsoWidh;
 
-        if (onLeftWall || onPlatformLeftWall)
+        if (onLeftWall)
             return mousePosition.x > transform.position.x + torsoWidh;
 
         return false;
@@ -171,15 +182,26 @@ public class Player : MonoBehaviour
 
     private void DetectGroundOrWalls()
     {
-        //use overlap box to detect if the player is touching either the wall or the floor
-        onGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck, 0f, groundAndWalls);
-        onLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f, groundAndWalls);
-        onRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
+        ground = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck, 0f, groundAndWalls);
+        leftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f, groundAndWalls);
+        rightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, groundAndWalls);
 
-        onPlatformGround = Physics2D.OverlapBox((Vector2)transform.position + Vector2.down * offsetY, sizeGroundCheck, 0f, platforms);
-        onPlatformLeftWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.left * offsetX, sizeWallCheck, 0f, platforms);
-        onPlatformRightWall = Physics2D.OverlapBox((Vector2)transform.position + Vector2.right * offsetX, sizeWallCheck, 0f, platforms);
+        onGround = ground;
+        onLeftWall = leftWall;
+        onRightWall = rightWall;
+
+        if (ground != null && ground.CompareTag("mobilePlatform"))
+            currentPlatform = ground.transform;
+        else if (leftWall != null && leftWall.CompareTag("mobilePlatform"))
+            currentPlatform = leftWall.transform;
+        else if (rightWall != null && rightWall.CompareTag("mobilePlatform"))
+            currentPlatform = rightWall.transform;
+        else
+            currentPlatform = null;
     }
+
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -190,23 +212,16 @@ public class Player : MonoBehaviour
 
         }
 
-        //with this the player position will follow the mobile platforms
-        DetectGroundOrWalls();
-        if (collision.gameObject.tag == "mobilePlatform" && (onPlatformGround || onPlatformLeftWall || onPlatformRightWall))
-        {
-            rb.gravityScale = 0;
-            transform.parent = collision.transform;
-
-        }
-
         //damage management
         if (collision.gameObject.layer == LayerMask.NameToLayer("Damage"))
         {
 
             tries -= 1;
             GameObject[] bullets = GameObject.FindGameObjectsWithTag("bullet");
-            foreach (GameObject bullet in bullets) {
-                Destroy(bullet);
+            foreach (GameObject bullet in bullets)
+            {
+                 Animator animatorBullet = bullet.GetComponent<Animator>();
+                 animatorBullet.Play("bala choque");
             }
             rb.bodyType = RigidbodyType2D.Static;
             cam.StartDamageTimer();
@@ -216,14 +231,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "mobilePlatform")
-        {
-            transform.parent = null;
-            rb.gravityScale = 1;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

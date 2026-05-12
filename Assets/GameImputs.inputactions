@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "GameImputs",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "4a9596ac-fe69-4e8c-a6b7-db83ddbd3b4f",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "ab073521-a635-45e4-9c16-17cd599202ab",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "acf831ae-184b-4ae8-a932-838b9e9ac6b2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
