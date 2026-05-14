@@ -19,7 +19,7 @@ TagManager:
   - PlayerLayer
   - Damage
   - platforms
-  - 
+  - UI_World
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Damage
     uniqueID: 2529545013
+    locked: 0
+  - name: UI_World
+    uniqueID: 924661771
     locked: 0
   m_RenderingLayers:
   - Default
