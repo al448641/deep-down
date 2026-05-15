@@ -1,0 +1,24 @@
+:root {
+}
+
+.my-progress-bar {
+}
+
+.unity-progress-bar {
+}
+
+.my-progress-bar .unity-progress-bar__container {
+    width: 872px;
+    height: 187px;
+    min-width: 888px;
+    min-height: 59px;
+}
+
+.my-progress-bar .unity-progress-bar__background {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    filter: tint(rgb(255, 200, 66));
+}

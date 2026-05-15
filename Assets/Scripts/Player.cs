@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using System;
 
 
@@ -19,6 +20,20 @@ public class Player : MonoBehaviour
     private float chargePercent;
 
     [SerializeField] private Animator animator;
+
+    //UI info
+    [SerializeField] private UIDocument uiDocument;
+    [SerializeField] private Transform heightMarkPosition;
+    private Label scoreText;
+    private Label heightText;
+    private Label timerText;
+    private float elapsedTime = 0f;
+    private Label triesSticks;
+    private Label livesSticks;
+    private ProgressBar OxigenBar;
+    private float actualOx;
+    private float maxOx = 100;
+    [SerializeField] private float speedOx;
 
     //respawn
     private int lives = 3;
@@ -61,6 +76,15 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreNumber");
+        heightText = uiDocument.rootVisualElement.Q<Label>("Height");
+        timerText = uiDocument.rootVisualElement.Q<Label>("Timer");
+        triesSticks = uiDocument.rootVisualElement.Q<Label>("TriesSticks");
+        livesSticks = uiDocument.rootVisualElement.Q<Label>("LivesSticks");
+        OxigenBar = uiDocument.rootVisualElement.Q<ProgressBar>("OxigenBar");
+        actualOx = maxOx;
+        OxigenBar.highValue = maxOx;
+
         jumpAction = new InputAction(binding: "<Mouse>/leftButton");
         jumpAction.Enable();
 
@@ -138,6 +162,7 @@ public class Player : MonoBehaviour
             actualForce = Mathf.Clamp(actualForce, minimForce, maxForce);
             chargePercent = (actualForce - minimForce) / (maxForce - minimForce);
             JumpIsCharging?.Invoke(chargePercent);
+            speedOx = 3;
         }
 
         if (jumpAction.WasReleasedThisFrame() && chargingJump)
@@ -145,6 +170,7 @@ public class Player : MonoBehaviour
             JumpIsCharging?.Invoke(0f);
             chargingJump = false;
             animator.SetBool("chargingJump", false);
+            speedOx = 1;
 
             if (CanJump())
             {
@@ -153,6 +179,28 @@ public class Player : MonoBehaviour
                 animator.SetBool("Jumping", true);
             }
         }
+
+        //UI Update
+        heightText.text = "" + (int)(transform.position.y - heightMarkPosition.position.y) + " M";
+        elapsedTime += Time.deltaTime;
+        System.TimeSpan t = System.TimeSpan.FromSeconds(elapsedTime);
+        timerText.text = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+
+        if (actualOx > 0)
+        {
+            actualOx -= speedOx * Time.deltaTime;
+            OxigenBar.value = actualOx;
+        }
+        else
+        {
+            tries = 0;
+            rb.bodyType = RigidbodyType2D.Static;
+            cam.StartDamageTimer();
+            DamageAnimation();
+            actualOx = maxOx;
+            UpdateUILive();
+        }
+
 
     }
 
@@ -234,12 +282,26 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //get spawn position and reload tries and O2
         if (collision.CompareTag("Respawn"))
         {
             tries = 5;
-            lastSpawnPoint = collision.transform.position;
+            if (lastSpawnPoint != collision.transform.position)
+            {
+                lastSpawnPoint = collision.transform.position;
+                actualOx += 35;
+                if (actualOx > maxOx)
+                {
+                    actualOx = maxOx;
+                }
+                triesSticks.text = "";
+                UpdateUILive();
+            }
+
+
         }
 
+        //recolect garbage
         if (collision.CompareTag("Collectable"))
         {
             if (lookingRight)
@@ -249,7 +311,7 @@ public class Player : MonoBehaviour
             else { animator.Play("cleaning left"); }
 
             garbageRecollected += 1;
-            Debug.Log("Basura recogida | Total en el inventario: " + garbageRecollected);
+            scoreText.text = "" + garbageRecollected;
         }
     }
 
@@ -273,8 +335,6 @@ public class Player : MonoBehaviour
         if (tries > 0)
         {
             transform.position = lastPointOnGround;
-            Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
-
         }
         else
         {
@@ -284,7 +344,6 @@ public class Player : MonoBehaviour
             {
                 tries = 5;
                 transform.position = lastSpawnPoint;
-                Debug.Log("Impacto detectado. Vidas restantes: " + lives + " | Intentos restantes: " + tries);
             }
             else
             {
@@ -293,8 +352,23 @@ public class Player : MonoBehaviour
 
         }
         rb.bodyType = RigidbodyType2D.Dynamic;
+        UpdateUILive();
 
     }
+    private void UpdateUILive()
+    {
+        triesSticks.text = "";
+        for (int i = 0; i < tries; i++)
+        {
+            triesSticks.text += "|";
+        }
+        livesSticks.text = "";
+        for (int i = 0; i < lives; i++)
+        {
+            livesSticks.text += "|";
+        }
+    }
+
 
     public void ResetTries()
     {

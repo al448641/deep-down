@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ParallaxEffect : MonoBehaviour
 {
+    //codigo de Diego
     [Header("Configuración")]
     public Transform camara;      // Arrastra la Cámara Principal aquí
     [Range(-1f, 1f)]
