@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using System;
+using UnityEngine.SceneManagement;
 
 
 
@@ -347,7 +348,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Debug.Log("Game Over");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
         }
@@ -378,7 +379,7 @@ public class Player : MonoBehaviour
     {
 
 
-        if ((onRightWall || onLeftWall)  && !onGround && rb.linearVelocity.y < 0)
+        if ((onRightWall || onLeftWall) && !onGround && rb.linearVelocity.y < 0)
         {
             float limitedVelY = Mathf.Max(rb.linearVelocity.y, -wallSlidingSpeed);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, limitedVelY);
@@ -386,7 +387,12 @@ public class Player : MonoBehaviour
 
     }
 
-     private void OnDrawGizmos()
+    private void OnDestroy()
+    {
+        JumpIsCharging = null;
+    }
+
+    private void OnDrawGizmos()
     {
         //draw the squares that show where the character is touching
         Gizmos.color = Color.red;

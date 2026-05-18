@@ -16,13 +16,14 @@ public class Bubbles : MonoBehaviour
         Player.JumpIsCharging += ChargingBubbles;
     }
 
-    private void onDestroy()
+    private void OnDestroy()
     {
         Player.JumpIsCharging -= ChargingBubbles;
 
     }
 
-    private  void ChargingBubbles(float charge)
+
+    private void ChargingBubbles(float charge)
     {
         particleEmision.rateOverTime = Mathf.Lerp(normalStrenght,chargeJumpStrenght,charge);
     }

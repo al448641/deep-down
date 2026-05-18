@@ -20,5 +20,5 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    filter: tint(rgb(255, 200, 66));
+    filter: tint(rgb(213, 255, 250));
 }
